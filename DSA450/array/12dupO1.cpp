@@ -40,3 +40,22 @@ int main() {
         }
         return 0;
     }
+
+///with extra space 
+// class Solution {
+// public:
+//     int findDuplicate(vector<int>& nums) {
+//         int ans = -1;
+//         map<int,int>m;        // creates a map for all the elements present in nums
+//         for(auto i : nums)
+//         {
+//            if(m[i]==1)  // if the element -> i is already present
+//            {
+//                ans = i;
+//                break;
+//            }
+//            m[i]=1;  // to show the element-> i  is present 
+//         }
+//         return ans; 
+//     }
+// };

@@ -67,22 +67,6 @@ void merge01(int*arr1,int *arr2,int size1,int size2){
 // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int main() {
     // your code goes here
     ios_base::sync_with_stdio(false);cin.tie(NULL); 

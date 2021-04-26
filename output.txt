@@ -1,4 +1,3 @@
-6
-The duplicate elements are 
-1910102610
-26
+1 4
+2 4
+8 10
