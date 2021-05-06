@@ -2,6 +2,24 @@
 using namespace std;
 
 
+vector<vector<int>> merged(vector<vector<int>> arr){
+    //function to sort the arrays
+        sort(arr.begin(),arr.end());
+        vector<int> tempinterval;
+        vector<vector<int>> merged;
+        tempinterval=arr[0];
+        for(auto it:arr){
+            if(it[0]<=tempinterval[1]){ 
+                tempinterval[1]=max(it[1],tempinterval[1]);
+            }else{
+                merged.push_back(tempinterval);
+                tempinterval=it;
+            }
+        }
+        merged.push_back(tempinterval);
+        return merged;
+}
+
 int main() {
     // your code goes here
     ios_base::sync_with_stdio(false);cin.tie(NULL); 
@@ -10,24 +28,25 @@ int main() {
     freopen("../../input.txt", "r", stdin); 
     freopen("../../output.txt", "w", stdout);
     #endif
-        int size;
+        vector<vector<int>> arr;
+        int size,value;
         cin>>size;
-        int arr[size][2];
         for (int i=0;i<size;i++)
-        {
+        {   vector<int> row;
             for(int j=0;j<2;j++)
             {
-                cin>>arr[i][j];
+                cin>>value;
+                row.push_back(value);
             }
-        }
-        
-        for(int i=0;i<size-1;i++){
-            if((arr[i][1]==arr[i+1][0]) ||
-            ((arr[i][1]>arr[i+1][0])&&(arr[i][1]<arr[i+1][1]))){
-                arr[i][1]=arr[i+1][1];
-            }
+            arr.push_back(row);
         }
 
-        for(int i=0;i<size;i++){cout<<arr[i][0]<<" "<<arr[i][1]<<endl;}
+        arr=merged(arr);       
+         for (auto it:arr)
+        {
+            cout<<it[0]<<" "<<it[1]<<endl;
+        }
+
+
         return 0;
     }
