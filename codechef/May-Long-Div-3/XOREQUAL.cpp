@@ -1,29 +1,36 @@
 #include<bits/stdc++.h> 
 using namespace std;
 
+//Binary Exponentiation
+//https://cp-algorithms.com/algebra/binary-exp.html
+// made a custom implementation of pow function 
+
+long long binpow(long long a, long long b, long long m) {
+    a %= m;
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)         //b is odd;
+            res = res * a % m;
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
+}
+
 int main() {
     // your code goes here
-    ios_base::sync_with_stdio(false);cin.tie(NULL); 
-
     #ifndef ONLINE_JUDGE 
     freopen("../../input.txt", "r", stdin); 
     freopen("../../output.txt", "w", stdout);
     #endif
         int t;
-        int m=pow(10,9)+7;
+        int MOD=1000000007;
         cin>>t;
         while(t--){
             int n;
-            long long num,count=0;
             cin>>n;
-            num=pow(2,n)-1;
-            for(int i=0;i<=num;i++){
-                if((i^i+1)==((i+2)^(i+3))){
-                    count=count+1;
-                    count=count%m;
-                }
-            }
+            long long count=binpow(2,n-1,MOD);
             cout<<count<<endl;
         }
-        return 0;
-    }
+    return 0;
+}
