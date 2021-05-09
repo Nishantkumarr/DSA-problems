@@ -17,6 +17,7 @@ void rearrange(vector<int> outarr, int size){
             swap(outarr[i],outarr[l]);
             l++;
         }
+        
     }
     printvector(outarr);
 }
@@ -29,8 +30,8 @@ int main() {
     // your code goes here
     ios_base::sync_with_stdio(false);cin.tie(NULL); 
     #ifndef ONLINE_JUDGE 
-    freopen("input.txt", "r", stdin); 
-    freopen("output.txt", "w", stdout);
+    freopen("../../input.txt", "r", stdin); 
+    freopen("../../output.txt", "w", stdout);
     #endif
         int size,input;
         vector<int> outarr;
