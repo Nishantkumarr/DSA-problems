@@ -31,28 +31,6 @@
 // In the fourth row, he first encounters a '.' and his strength reduces to 13. Then he encounters a '#' at the second position and jumps to the next row. Since this is the last row, when he jumps he escapes from the park .
 // His strength left is 13. Since this is clearly greater than K=5, his escape was successful.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include<bits/stdc++.h> 
 using namespace std;
 //preprocessors 
@@ -83,9 +61,9 @@ int main() {
 			}
 		}
 		int i=0,j=0;
-
-		while((minst<st)&&(i<n)){
-			cout<<"sum -first "<<" i " <<i<<" j " <<j<<" "<<st<<" "<<endl<<endl;
+		int flag=0;
+		while((i<n)){
+			// cout<<"sum -first "<<" i " <<i<<" j " <<j<<" "<<st<<" "<<endl<<endl;
 			if(arr[i][j]=='.'){
 				cout<<arr[i][j]<<" "<<endl;
 				st=st-2;
@@ -102,11 +80,18 @@ int main() {
 				i++;
 				j=0;
 			}
-			cout<<endl<<"st-end "<<" i " <<i<<" j " <<j<<" "<<st<<endl;
+			if(minst>=st){
+				flag=0;
+				break;
+
+			}else{
+				flag=1;
+			}
+			cout<<endl<<"st-at the start  of the "<<" i " <<i<<" j " <<j<<" "<<st<<endl;
 		}
 		
 		
-		if((i==n-1)&&(j==m-1)){
+		if(flag==1){
 			yes;
 		}else{
 			no;
