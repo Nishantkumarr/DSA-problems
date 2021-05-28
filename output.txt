@@ -1,1 +1,1 @@
-they are same 
+Longest String :- bbccbb
