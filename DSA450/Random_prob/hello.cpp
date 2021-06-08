@@ -9,12 +9,7 @@ int main() {
     // freopen("../input.txt", "r", stdin); 
     // freopen("../output.txt", "w", stdout);
     // #endif
-        int t=3;
-        // cin>>t;
-        for(int i=t;i<=10 &t>0;t--)
-        {
-            cout<<"hello";
-            
-        }
+        vector<int> app={1,23,3,4,5,6,7,8};
+        cout<<app.size()-1;
         return 0;
     }
