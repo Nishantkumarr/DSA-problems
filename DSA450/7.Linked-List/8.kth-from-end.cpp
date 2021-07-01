@@ -69,6 +69,27 @@ istream& operator >>( istream&in,node*&head){
 }
 
 
+node* kthFromEnd(node*head,int k){
+    node*slow=head;
+    node*fast=head;
+    int jump=0;
+
+    while(jump<k){
+        fast=fast->next;
+        jump++;
+    }
+
+    // cout<<fast->data<<"idd";
+
+    while(fast!=NULL){
+        fast=fast->next;
+        slow=slow->next;
+    }
+    return slow;
+
+}
+
+
 int main() {
     // your code goes here
     ios_base::sync_with_stdio(false);cin.tie(NULL); 
@@ -77,9 +98,14 @@ int main() {
     freopen("../../input.txt", "r", stdin); 
     freopen("../../output.txt", "w", stdout);
     #endif
-
+        int k;
+        cin>>k;
         node*head=NULL;
         cin>>head;
         cout<<head;
+
+        node *pp=kthFromEnd(head,k);
+
+        cout<<"\n"<<pp->data;
         return 0;
     }

@@ -46,6 +46,7 @@ node* takeinput(){
 
 
 //print the linkedList
+
 void printll(node*head){
     while(head != NULL){
         cout<<head->data << "-> ";
@@ -69,6 +70,26 @@ istream& operator >>( istream&in,node*&head){
 }
 
 
+
+
+
+void reverse (node*&head){
+
+    node*curr=head;           //setting the current element head
+    node*prev=NULL;           //setting prev as null
+    node*next1;              //defining the next1 which we will update in the loop
+
+    while(curr!=NULL){          //till we face the NULL as curr
+        next1=curr->next;       //we set next1=next current element
+        curr->next=prev;           //we set the current element's next pointing to the prev;
+        prev=curr;               //now shift it to the next  variable
+        curr=next1;              //now shift it to next loop variable
+    }
+
+    head=prev;
+
+}
+
 int main() {
     // your code goes here
     ios_base::sync_with_stdio(false);cin.tie(NULL); 
@@ -80,6 +101,12 @@ int main() {
 
         node*head=NULL;
         cin>>head;
+        cout<<head;
+
+        //reversal of linkeddlist
+        reverse(head);
+
+        cout<<"\nAfter the reversal \n";
         cout<<head;
         return 0;
     }

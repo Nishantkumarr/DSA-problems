@@ -46,6 +46,7 @@ node* takeinput(){
 
 
 //print the linkedList
+
 void printll(node*head){
     while(head != NULL){
         cout<<head->data << "-> ";
@@ -69,6 +70,30 @@ istream& operator >>( istream&in,node*&head){
 }
 
 
+
+
+
+
+node* searchMid(node*head){
+
+    if((head==NULL)||(head->next==NULL)){
+        return head;
+    }
+    node*slow=head;
+    node*fast=head;
+
+    while((fast!= NULL )&&(fast->next!=NULL)){
+        fast=fast->next->next;
+        slow=slow->next;
+    }
+
+    return slow;
+
+}
+
+
+
+
 int main() {
     // your code goes here
     ios_base::sync_with_stdio(false);cin.tie(NULL); 
@@ -81,5 +106,8 @@ int main() {
         node*head=NULL;
         cin>>head;
         cout<<head;
+        node*mid=searchMid(head);
+
+        cout<<"\n"<<mid->data;
         return 0;
     }
