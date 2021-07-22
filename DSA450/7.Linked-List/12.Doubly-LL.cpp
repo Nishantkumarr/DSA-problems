@@ -76,6 +76,19 @@ void printll(node*head){
     }
 }
 
+void deleteithead(node*&head){
+        head->next->prev=NULL;
+        node*temp=head->next;
+        free(head);
+        head=temp;
+}
+
+void deleteitmid(node*mid){
+    mid->next->prev=mid->prev;
+    mid->prev->next=mid->next;
+    free(mid);
+}
+
 
 //we return cout which is an object of ostream
 //operator << to overload the exixting operator
@@ -101,13 +114,13 @@ int main() {
         cout<<head<<endl;
         insertHead(head,50);
         node* mid=head;
-        cout<<head<<endl;
+        
         insertHead(head,20);
-        cout<<head<<endl;
+        
         insertHead(head,45);
-        cout<<head<<endl;
+        
         insertHead(head,30);
-        cout<<head<<endl;
+        
 
         node *temp=head;
         //getting the last node to pass it on to the insert at Tail function
@@ -115,13 +128,24 @@ int main() {
             temp=temp->next;
         }
 
-
+        cout<<"\n Insert at tail"<<endl;
         insertTail(temp,345);
         cout<<head<<endl;
 
-        cout<<"insert at mid";
+        cout<<"insert at mid"<<endl;
         insertmid(mid,4500);
         cout<<head<<endl;
+
+
+        cout<<"\n Delete at head"<<endl;
+        deleteithead(head);
+        cout<<endl<<head<<endl;
+
+        cout<<"\n Delete at mid"<<endl;
+        deleteitmid(mid);
+        cout<<endl<<head<<endl;
+
+        
         
         return 0;
     }
